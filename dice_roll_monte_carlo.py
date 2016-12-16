@@ -22,8 +22,9 @@ def eval_prob(rolls, fn):
             t = t + 1
         else:
             f = f + 1
-    #print "t={}, f={}".format(t, f)
-    return t/float(f) * 100.0 if f != 0 else 100.0
+    total = t + f
+    #print "t={}, f={}, total={}".format(t, f, total)
+    return t / float(total) * 100.0 if total != 0 else None
 
 events = {
     'at_least_one_six': lambda tup: reduce(lambda x,y: x or y, map(lambda n: n == 6, tup))
